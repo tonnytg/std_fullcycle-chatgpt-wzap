@@ -7,13 +7,13 @@ import (
 
 type ChatConfig struct {
 	Model            *Model
-	Temperature      float64  // 0.0 precision - 1.0 creative
-	TopP             float64  // 0.0 conservador - 1.0 random
+	Temperature      float32  // 0.0 precision - 1.0 creative
+	TopP             float32  // 0.0 conservador - 1.0 random
 	N                int      // number of tokens to generate, quantity of words return
 	Stop             []string // what words to stop generating
 	MaxTokens        int      // 1 - 1000 max number of token to generate
-	PresencePenalty  float64  // -2.0 - 2.0 Penalty to add to the log probability of a token for a given sequence. The penalty is applied to the log probability of the specified token before the softmax. This parameter is useful for controlling the diversity of generated text, among other things. The value of this parameter is chosen by the user, and is generally a small positive number.
-	FrequencyPenalty float64  // -2.0 - 2.0
+	PresencePenalty  float32  // -2.0 - 2.0 Penalty to add to the log probability of a token for a given sequence. The penalty is applied to the log probability of the specified token before the softmax. This parameter is useful for controlling the diversity of generated text, among other things. The value of this parameter is chosen by the user, and is generally a small positive number.
+	FrequencyPenalty float32  // -2.0 - 2.0
 }
 
 type Chat struct {
