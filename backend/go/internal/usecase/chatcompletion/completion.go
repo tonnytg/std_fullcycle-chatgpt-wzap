@@ -3,6 +3,7 @@ package chatcompletion
 import (
 	"context"
 	"errors"
+	"fmt"
 
 	openai "github.com/sashabaranov/go-openai"
 	"github.com/tonnytg/std-fullcycle-chatgpt-wzap/internal/domain/entity"
@@ -53,10 +54,15 @@ func (uc *ChatCompletionUseCase) Execute(ctx context.Context, input ChatCompleti
 		if err.Error() == "chat not found" {
 			chat, err = createNewChat(input)
 			if err != nil {
+				fmt.Println("Cheguei aqui1, erro: ", err.Error())
+				fmt.Println("Chat: ", chat)
 				return nil, errors.New("error creating new chat: " + err.Error())
 			}
 			err = uc.ChatGateway.CreateChat(ctx, chat)
 			if err != nil {
+				fmt.Println("Cheguei aqui2, erro: ", err.Error())
+				fmt.Println("Chat: ", chat)
+				fmt.Println("Chat Config: ", chat.Config)
 				return nil, errors.New("error persisting new chat: " + err.Error())
 			}
 		} else {

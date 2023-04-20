@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS `chats` (
     id VARCHAR(36) NOT NULL PRIMARY KEY,
     user_id VARCHAR(36) NOT NULL,
     initial_message_id TEXT NOT NULL,
-    status VARCHAR(36) NOT NULL,
+    status VARCHAR(6) NOT NULL,
     token_usage SMALLINT NOT NULL,
     model VARCHAR(20) NOT NULL,
     model_max_tokens SMALLINT NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS `chats` (
     frequency_penalty DECIMAL(3,2) NOT NULL,
     created_at TIMESTAMP NOT NULL,
     updated_at TIMESTAMP NOT NULL
-);
+    );
 
 CREATE TABLE IF NOT EXISTS `messages` (
     id VARCHAR(36) NOT NULL PRIMARY KEY,
@@ -28,7 +28,6 @@ CREATE TABLE IF NOT EXISTS `messages` (
     erased BOOLEAN NOT NULL,
     order_msg SMALLINT NOT NULL,
     created_at TIMESTAMP NOT NULL,
-    updated_at TIMESTAMP NOT NULL,
     FOREIGN KEY (chat_id) REFERENCES chats (id) ON DELETE CASCADE
-);
+    );
 COMMIT;
