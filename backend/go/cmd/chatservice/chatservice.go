@@ -3,11 +3,12 @@ package main
 import (
 	"database/sql"
 	"fmt"
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/sashabaranov/go-openai"
 	"github.com/tonnytg/std-fullcycle-chatgpt-wzap/configs"
 	"github.com/tonnytg/std-fullcycle-chatgpt-wzap/internal/infra/repository"
-	"github.com/tonnytg/std-fullcycle-chatgpt-wzap/internal/infra/web/web"
-	"github.com/tonnytg/std-fullcycle-chatgpt-wzap/internal/infra/web/web/webserver"
+	"github.com/tonnytg/std-fullcycle-chatgpt-wzap/internal/infra/web"
+	"github.com/tonnytg/std-fullcycle-chatgpt-wzap/internal/infra/web/webserver"
 	"github.com/tonnytg/std-fullcycle-chatgpt-wzap/internal/usecase/chatcompletion"
 )
 
@@ -17,7 +18,8 @@ func main() {
 		panic(err)
 	}
 
-	conn, err := sql.Open(configs.DBDriver, fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local", configs.DBUser, configs.DBPassword, configs.DBHost, configs.DBPort, configs.DBName))
+	conn, err := sql.Open(configs.DBDriver, fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true&multiStatements=true",
+		configs.DBUser, configs.DBPassword, configs.DBHost, configs.DBPort, configs.DBName))
 	if err != nil {
 		panic(err)
 	}
