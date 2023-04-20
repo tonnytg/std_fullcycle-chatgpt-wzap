@@ -37,5 +37,4 @@ type Message struct {
 	Erased    bool
 	OrderMsg  int32
 	CreatedAt time.Time
-	UpdatedAt time.Time
 }

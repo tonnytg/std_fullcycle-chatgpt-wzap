@@ -135,7 +135,7 @@ func (q *Queries) FindChatByID(ctx context.Context, id string) (Chat, error) {
 }
 
 const findErasedMessagesByChatID = `-- name: FindErasedMessagesByChatID :many
-SELECT id, chat_id, role, content, tokens, model, erased, order_msg, created_at, updated_at FROM messages WHERE erased=1 and chat_id = ? order by order_msg asc
+SELECT id, chat_id, role, content, tokens, model, erased, order_msg, created_at FROM messages WHERE erased=1 and chat_id = ? order by order_msg asc
 `
 
 func (q *Queries) FindErasedMessagesByChatID(ctx context.Context, chatID string) ([]Message, error) {
@@ -157,7 +157,6 @@ func (q *Queries) FindErasedMessagesByChatID(ctx context.Context, chatID string)
 			&i.Erased,
 			&i.OrderMsg,
 			&i.CreatedAt,
-			&i.UpdatedAt,
 		); err != nil {
 			return nil, err
 		}
@@ -173,7 +172,7 @@ func (q *Queries) FindErasedMessagesByChatID(ctx context.Context, chatID string)
 }
 
 const findMessagesByChatID = `-- name: FindMessagesByChatID :many
-SELECT id, chat_id, role, content, tokens, model, erased, order_msg, created_at, updated_at FROM messages WHERE erased=0 and chat_id = ? order by order_msg asc
+SELECT id, chat_id, role, content, tokens, model, erased, order_msg, created_at FROM messages WHERE erased=0 and chat_id = ? order by order_msg asc
 `
 
 func (q *Queries) FindMessagesByChatID(ctx context.Context, chatID string) ([]Message, error) {
@@ -195,7 +194,6 @@ func (q *Queries) FindMessagesByChatID(ctx context.Context, chatID string) ([]Me
 			&i.Erased,
 			&i.OrderMsg,
 			&i.CreatedAt,
-			&i.UpdatedAt,
 		); err != nil {
 			return nil, err
 		}

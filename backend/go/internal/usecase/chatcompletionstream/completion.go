@@ -3,6 +3,7 @@ package chatcompletionstream
 import (
 	"context"
 	"errors"
+	"fmt"
 	openai "github.com/sashabaranov/go-openai"
 	"github.com/tonnytg/std-fullcycle-chatgpt-wzap/internal/domain/entity"
 	"github.com/tonnytg/std-fullcycle-chatgpt-wzap/internal/domain/gateway"
@@ -53,6 +54,7 @@ func NewChatCompletionUseCase(chatGateway gateway.ChatGateway, openAiClient *ope
 func (uc *ChatCompletionUseCase) Execute(ctx context.Context, input ChatCompletionInputDTO) (*ChatCompletionOutputDTO, error) {
 
 	chat, err := uc.ChatGateway.FindChatByID(ctx, input.ChatID)
+	fmt.Println("Chat Gawteway FindChat line 57")
 	if err != nil {
 		if err.Error() == "chat not found" {
 			// create new chat (entity)
@@ -65,6 +67,7 @@ func (uc *ChatCompletionUseCase) Execute(ctx context.Context, input ChatCompleti
 			if err != nil {
 				return nil, errors.New("error save new chat :" + err.Error())
 			} else {
+				fmt.Println("Cheguei aqui 3")
 				return nil, errors.New("error fetching existing chat: " + err.Error())
 			}
 		}

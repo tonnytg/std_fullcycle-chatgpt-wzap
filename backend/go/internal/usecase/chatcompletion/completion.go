@@ -50,6 +50,7 @@ func NewChatCompletionUseCase(chatGateway gateway.ChatGateway, openAIClient *ope
 
 func (uc *ChatCompletionUseCase) Execute(ctx context.Context, input ChatCompletionInputDTO) (*ChatCompletionOutputDTO, error) {
 	chat, err := uc.ChatGateway.FindChatByID(ctx, input.ChatID)
+	fmt.Println("Chat Gateway FindChat line 53")
 	if err != nil {
 		if err.Error() == "chat not found" {
 			chat, err = createNewChat(input)
@@ -66,6 +67,7 @@ func (uc *ChatCompletionUseCase) Execute(ctx context.Context, input ChatCompleti
 				return nil, errors.New("error persisting new chat: " + err.Error())
 			}
 		} else {
+			fmt.Println("Cheguei arqui 4")
 			return nil, errors.New("error fetching existing chat: " + err.Error())
 		}
 	}
