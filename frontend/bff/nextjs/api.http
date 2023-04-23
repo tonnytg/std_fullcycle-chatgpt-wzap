@@ -5,6 +5,5 @@ POST http://localhost:3000/api/chats
 Content-Type: application/json
 
 {
-    "name": "My chat",
-    "description": "My Chat Description"
+
 }
