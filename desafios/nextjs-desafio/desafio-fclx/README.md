@@ -12,7 +12,7 @@ Full Cycle Rocks!!
 
 ### Define
 
-Database inside folder `prisma``
+Database inside folder `prisma`
 
 ### How to use
 
