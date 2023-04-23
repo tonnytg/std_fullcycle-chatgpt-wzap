@@ -13,7 +13,8 @@ export async function POST (request: NextRequest) {
                 },
             },
         },
-        include:{
+        select: {
+            id: true,
             messages: true
         }
     });
@@ -23,6 +24,13 @@ export async function POST (request: NextRequest) {
 
 export async function GET(request: NextRequest) {
     const chats = await prisma.chat.findMany({
+        select: {
+            id: true,
+            messages: {
+                orderBy: { created_at: "asc" },
+                take: 1,
+            },
+        },
         orderBy: {
             created_at: "desc",
         },
