@@ -6,9 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "grpc:compile": "rm -rf ./src/grpc/rpc; mkdir -p ./src/grpc; proto-loader-gen-types --longs=String --enums=String --defaults --oneofs --grpcLib=@grpc/grpc-js --outDir=./src/grpc/rpc ./proto/*.proto"
   },
   "dependencies": {
+    "@grpc/grpc-js": "^1.8.14",
+    "@grpc/proto-loader": "^0.7.6",
     "@prisma/client": "^4.13.0",
     "@types/react": "18.0.38",
     "@types/react-dom": "18.0.11",
@@ -28,6 +31,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^18.16.0",
+    "jest": "^29.5.0",
     "prisma": "^4.13.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"

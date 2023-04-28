@@ -17,15 +17,15 @@ export class ChatServiceClient {
       },
       metadata
     );
-    stream.on("data", (data) => {
-      console.log(data);
-    });
-    stream.on("error", (err) => {
-      console.log(err);
-    });
-    stream.on("end", () => {
-      console.log("end");
-    });
+    // stream.on("data", (data) => {
+    //   console.log(data);
+    // });
+    // stream.on("error", (err) => {
+    //   console.log(err);
+    // });
+    // stream.on("end", () => {
+    //   console.log("end");
+    // });
     return stream;
   }
 }

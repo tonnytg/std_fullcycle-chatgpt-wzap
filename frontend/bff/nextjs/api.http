@@ -10,3 +10,20 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3000/api/chats
+
+###
+@chatId = 3825ed7c-dd7f-4374-9a6a-20123d4859d2
+
+GET http://localhost:3000/api/chats/{{chatId}}/messages
+
+###
+POST http://localhost:3000/api/chats/{{chatId}}/messages
+Content-Type: application/json
+
+{
+    "message": "Estou testando a API"
+}
+
+
+@messageId = 3825ed7c-dd7f-4374-9a6a-20123d4859d2
+GET http://localhost:3000/api/messages/{{messageId}}/events
