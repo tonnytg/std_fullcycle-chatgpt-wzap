@@ -24,12 +24,12 @@ export async function POST(
         });
 
         const body = await request.json();
-        const messageCreate = await prisma.message.create({
+        const messageCreated = await prisma.message.create({
             data: {
                 content: body.message,
                 chat_id: chat.id,
             }
         });
 
-        return NextResponse.json(messageCreate);
+        return NextResponse.json(messageCreated);
 }
