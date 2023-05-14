@@ -1,20 +1,20 @@
 GET http://localhost:3000/api/hello
 
 ###
+GET http://localhost:3000/api/chats
+
+###
 POST http://localhost:3000/api/chats
 Content-Type: application/json
 
 {
-    "message": "Test do Antonio"
+    "message": "teste1"
 }
 
 ###
-GET http://localhost:3000/api/chats
+@chatId = 27791684-db76-4079-b829-2454aa5a03b7
 
-###
-@chatId = 3825ed7c-dd7f-4374-9a6a-20123d4859d2
-
-GET http://localhost:3000/api/chats/{{chatId}}/messages
+DELETE http://localhost:3000/api/chats/{{chatId}}/messages
 
 ###
 POST http://localhost:3000/api/chats/{{chatId}}/messages

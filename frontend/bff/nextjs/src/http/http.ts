@@ -7,7 +7,7 @@ export default class ClientHttp {
         const data = await response.json();
 
         if (!response.ok) throw new Error(data.message);
-        return response.json();
+        return data;
     }
 
     static async post(path: string, body: any) {
@@ -22,6 +22,19 @@ export default class ClientHttp {
         if (!response.ok) throw new Error(data.message);
         return data;
     }
+
+    static async put(path: string, body: any) {
+      const response = await fetch(`${ClientHttp.API_URL}/${path}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.message);
+      return data;
+    }    
 
     static async delete(path: string) {
         const response = await fetch(`${ClientHttp.API_URL}/${path}`, {

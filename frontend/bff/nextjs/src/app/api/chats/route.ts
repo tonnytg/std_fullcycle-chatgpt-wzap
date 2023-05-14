@@ -32,7 +32,7 @@ export async function GET(request: NextRequest) {
             },
         },
         orderBy: {
-            created_at: "desc",
+            created_at: "asc",
         },
     });
 

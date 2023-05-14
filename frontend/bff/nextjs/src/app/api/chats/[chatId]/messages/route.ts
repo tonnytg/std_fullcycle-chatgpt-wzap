@@ -1,8 +1,8 @@
-import { NextRequest } from "next/server";
-import { prisma } from "../../../prisma/prisma";
+import { NextRequest, NextResponse } from "next/server";
+import { prisma } from "../../../../prisma/prisma";
 
 export async function GET(
-    _request: NextRequest,
+    request: NextRequest,
     { params }: { params: { chatId: string }})
     {
     const messages = await prisma.message.findMany({
@@ -16,7 +16,7 @@ export async function GET(
 }
 
 export async function POST(
-    _request: NextRequest,
+    request: NextRequest,
     { params }: { params: { chatId: string } }
     ) {
         const chat = await prisma.chat.findUniqueOrThrow({

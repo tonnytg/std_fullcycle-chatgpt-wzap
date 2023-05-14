@@ -1,7 +1,10 @@
 import { NextRequest } from "next/server";
 import { prisma } from "../../../../prisma/prisma";
 import { ChatServiceClientFactory } from "../../../../../grpc/chat-service-client";
-import { getToken } from "next-auth/jwt";
+// import { getToken } from "next-auth/jwt";
+
+// PAREI em 1:41:00
+
 
 export async function GET(
   request: NextRequest,
