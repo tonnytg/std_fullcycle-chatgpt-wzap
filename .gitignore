@@ -1,6 +1,6 @@
-backend/go/.docker
 .idea
 idea
 *.log
 .DS_Store
 .env
+.docker
