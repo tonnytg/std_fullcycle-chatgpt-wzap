@@ -10,9 +10,16 @@ require (
 require (
 	github.com/sashabaranov/go-openai v1.5.8
 	github.com/spf13/viper v1.15.0
+	google.golang.org/grpc v1.52.0
+	google.golang.org/protobuf v1.28.1
 )
 
-require github.com/go-sql-driver/mysql v1.7.0 // indirect
+require (
+	github.com/go-sql-driver/mysql v1.7.0
+	github.com/golang/protobuf v1.5.2 // indirect
+	golang.org/x/net v0.4.0 // indirect
+	google.golang.org/genproto v0.0.0-20221227171554-f9683d7f8bef // indirect
+)
 
 require (
 	github.com/fsnotify/fsnotify v1.6.0 // indirect

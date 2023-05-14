@@ -26,3 +26,7 @@ This project use .env file to set ENV.
     MAX_TOKENS=300
     AUTH_TOKEN=12346
     STOP=["\final-end\"]
+
+
+1 . Criar um produto inicial MVP -> Atrair gente (aumentar a nossa de emails)
+2 . Como vamos ganhar dinheiro desde do primeiro dia?
