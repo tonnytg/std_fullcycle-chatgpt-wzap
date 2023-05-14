@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 import { prisma } from "../../../prisma/prisma";
 
 export async function GET(
-    request: NextRequest,
+    _request: NextRequest,
     { params }: { params: { chatId: string }})
     {
     const messages = await prisma.message.findMany({
@@ -16,7 +16,7 @@ export async function GET(
 }
 
 export async function POST(
-    request: NextRequest,
+    _request: NextRequest,
     { params }: { params: { chatId: string } }
     ) {
         const chat = await prisma.chat.findUniqueOrThrow({
