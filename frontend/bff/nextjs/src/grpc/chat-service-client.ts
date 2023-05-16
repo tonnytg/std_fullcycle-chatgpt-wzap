@@ -11,7 +11,7 @@ export class ChatServiceClient {
     metadata.set("authorization", this.authorization);
     const stream = this.chatClient.chatStream(
       {
-        chatId: data.chat_id!,
+        chatId: data.chat_id!, //assertion null
         userId: data.user_id,
         userMessage: data.message,
       },
